@@ -1,8 +1,10 @@
 box: centos:7.3.1611
 build:
   steps:
-    - install-packages:
-        packages: java-1.8.0-openjdk java-1.8.0-openjdk-devel
+    - script:
+        name: install-package
+        code: |
+          yum install -y java-1.8.0-openjdk java-1.8.0-openjdk-devel
     - script:
         name: post-install-check
         code: |
@@ -10,3 +12,5 @@ build:
           env
           echo "[pwd]"
           pwd
+          echo "[java version]"
+          java -version
