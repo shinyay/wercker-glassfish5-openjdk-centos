@@ -1,4 +1,4 @@
-box: centos7
+box: centos7:7.3.1611
 build:
   steps:
     - install-packages:
