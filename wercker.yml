@@ -1,0 +1,12 @@
+box: centos7
+build:
+  steps:
+    - install-packages:
+        packages: java-1.8.0-openjdk java-1.8.0-openjdk-devel
+    - script:
+        name: post-install-check
+        code: |
+          echo "[env]"
+          env
+          echo "[pwd]"
+          pwd
