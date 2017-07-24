@@ -9,14 +9,14 @@ build:
     - script:
         name: post-install-check
         code: |
-          echo "[env]"
-          env
-          echo "[pwd]"
-          pwd
+          echo "export JAVA_HOME=`readlink /etc/alternatives/java | sed -e 's/\/jre\/bin\/java//g'`" >> /etc/profile
+          echo "[cat /etc/profile]"
+          cat /etc/profile
+          source /etc/profile
           echo "[java version]"
           java -version
-          echo "cat /etc/profile"
-          cat /etc/profile
+          echo "[env]"
+          env
     - internal/docker-push:
          username: $USERNAME
          password: $PASSWORD
