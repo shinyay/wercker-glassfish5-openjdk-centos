@@ -17,9 +17,6 @@ build:
           java -version
           echo "cat /etc/profile"
           cat /etc/profile
-## Push to Docker Hub
-deploy:
-  steps:
     - internal/docker-push:
          username: $USERNAME
          password: $PASSWORD
