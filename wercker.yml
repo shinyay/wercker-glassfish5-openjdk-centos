@@ -9,10 +9,8 @@ build:
     - script:
         name: post-install-check
         code: |
-          echo "export JAVA_HOME=`readlink /etc/alternatives/java | sed -e 's/\/jre\/bin\/java//g'`" >> /etc/profile
-          echo "[cat /etc/profile]"
-          cat /etc/profile
-          source /etc/profile
+          echo "export JAVA_HOME=`readlink /etc/alternatives/java | sed -e 's/\/jre\/bin\/java//g'`" >> /root/.bashrc
+          source /root/.bashrc
           echo "[java version]"
           java -version
           echo "[env]"
@@ -27,10 +25,9 @@ build:
     - script:
         name: install-package-for-glassfish
         code: |
-          echo "export GLASSFISH_HOME=/glassfish5" >> /etc/profile
-          echo "export PATH=$PATH:/glassfish5/bin" >> /etc/profile
-          cat /etc/profile
-          source /etc/profile
+          echo "export GLASSFISH_HOME=/glassfish5" >> /root/.bashrc
+          echo "export PATH=$PATH:/glassfish5/bin" >> /root/.bashrc
+          source /root/.bashrc
           yum install -y wget unzip
           wget --no-check-certificate http://download.oracle.com/glassfish/5.0/promoted/glassfish-${GF_VERSION}.zip
           ls -l
