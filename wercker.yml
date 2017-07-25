@@ -50,4 +50,4 @@ build:
          tag: latest $GF_VERSION
          author: shinyay
          ports: 4848 8080 8181
-         cmd: asadmin start-domain -v
+         cmd: /bin/bash --login
