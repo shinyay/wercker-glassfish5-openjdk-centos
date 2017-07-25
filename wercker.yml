@@ -21,7 +21,7 @@ build:
          repository: shinyay/centos7-openjdk8
          tag: latest $OSVERSION
          author: shinyay
-         cmd: bash
+         cmd: /bin/bash --login
     - script:
         name: install-package-for-glassfish
         code: |
