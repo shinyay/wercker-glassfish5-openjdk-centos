@@ -1,4 +1,4 @@
-box: centos:7.3.1611
+box: centos:$OSVERSION
 ## Install OpenJDK 8
 build:
   steps:
@@ -21,6 +21,6 @@ build:
          username: $USERNAME
          password: $PASSWORD
          repository: shinyay/centos7-openjdk
-         tag: latest
+         tag: latest $OSVERSION
          author: shinyay
          cmd: bash 
