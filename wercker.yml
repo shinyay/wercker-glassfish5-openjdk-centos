@@ -20,7 +20,7 @@ build:
     - internal/docker-push:
          username: $USERNAME
          password: $PASSWORD
-         repository: shinyay/centos7-openjdk
+         repository: shinyay/centos7-openjdk8
          tag: latest $OSVERSION
          author: shinyay
          cmd: bash
@@ -46,4 +46,11 @@ build:
           echo "AS_ADMIN_PASSWORD=${GF_PASSWORD}" > /tmp/gfpassword && \
           asadmin --user=admin --passwordfile=/tmp/gfpassword enable-secure-admin && \
           asadmin --user=admin stop-domain
-
+    - internal/docker-push:
+         username: $USERNAME
+         password: $PASSWORD
+         repository: shinyay/centos7-openjdk8-glassfish5
+         tag: latest $GF_VERSION
+         author: shinyay
+         ports: 4848 8080 8181
+         cmd: asadmin start-domain -v
