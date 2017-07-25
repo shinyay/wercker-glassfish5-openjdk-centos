@@ -3,7 +3,7 @@ box: centos:$OSVERSION
 build:
   steps:
     - script:
-        name: install-package
+        name: install-package-for-jdk
         code: |
           yum install -y java-1.8.0-openjdk java-1.8.0-openjdk-devel
     - script:
@@ -23,4 +23,26 @@ build:
          repository: shinyay/centos7-openjdk
          tag: latest $OSVERSION
          author: shinyay
-         cmd: bash 
+         cmd: bash
+    - script:
+        name: install-package-for-glassfish
+        code: |
+          echo "export GLASSFISH_HOME=/glassfish5" >> /etc/profile
+          echo "export PATH=$PATH:/glassfish5/bin" >> /etc/profile
+          cat /etc/profile
+          source /etc/profile
+          yum install -y wget unzip
+          wget --no-check-certificate http://download.oracle.com/glassfish/5.0/promoted/glassfish-${GF_VERSION}.zip
+          unzip -o glassfish-${GLASSFISH_VERSION}.zip
+          rm -f ${GLASSFISH_PKG}
+          echo "----- CREATE PASSWORD FILE --------------------" && \
+          echo "AS_ADMIN_PASSWORD=" > /tmp/gfpassword && \
+          echo "AS_ADMIN_NEWPASSWORD=${GF_PASSWORD}" >> /tmp/gfpassword  && \
+          echo "----- CHANGE ADMIN PASSWORD AND SECURE ADMIN ACCESS --------------------" && \
+          asadmin --user=admin --passwordfile=/tmp/gfpassword change-admin-password --domain_name domain1 && \
+          echo "----- ENABLE DOMAIN ADMINISTRATION SERVER --------------------" && \
+          asadmin start-domain && \
+          echo "AS_ADMIN_PASSWORD=${GF_PASSWORD}" > /tmp/gfpassword && \
+          asadmin --user=admin --passwordfile=/tmp/gfpassword enable-secure-admin && \
+          asadmin --user=admin stop-domain
+
