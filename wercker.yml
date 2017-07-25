@@ -33,8 +33,8 @@ build:
           source /etc/profile
           yum install -y wget unzip
           wget --no-check-certificate http://download.oracle.com/glassfish/5.0/promoted/glassfish-${GF_VERSION}.zip
-          unzip -o glassfish-${GLASSFISH_VERSION}.zip
-          rm -f ${GLASSFISH_PKG}
+          unzip -o glassfish-${GF_VERSION}.zip
+          rm -f glassfish-${GF_VERSION}.zip
           echo "----- CREATE PASSWORD FILE --------------------" && \
           echo "AS_ADMIN_PASSWORD=" > /tmp/gfpassword && \
           echo "AS_ADMIN_NEWPASSWORD=${GF_PASSWORD}" >> /tmp/gfpassword  && \
