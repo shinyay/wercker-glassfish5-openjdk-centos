@@ -1,6 +1,6 @@
-# Wecker for GlassFish 5 with OpenJDK 8 on CentOS 7
+# Wecrker for GlassFish 5 with OpenJDK 8 on CentOS 7
 
-This Wecker application makes GlassFish 5 runtime environment on CentOS 7.
+This Wecrker application makes GlassFish 5 runtime environment on CentOS 7.
 
 ## Description
 
@@ -8,7 +8,7 @@ GlassFish 5 is the Java Application Server for reference implementation of Java 
 It is built and released weekly as beta edition since Java EE 8 is not official released yet.
 So you have to download and install it originally when you use it.
 
-This Wecker application enables you to omit your process and use it easily and quickly.
+This Wecrker application enables you to omit your process and use it easily and quickly.
 
 ## Demo
 
