@@ -43,7 +43,8 @@ build:
           echo "AS_ADMIN_PASSWORD=${GF_PASSWORD}" > /tmp/gfpassword && \
           asadmin --user=admin --passwordfile=/tmp/gfpassword enable-secure-admin && \
           asadmin --user=admin stop-domain
-          cp shell/start-domain.sh /root
+          cp shell/start-domain.sh /root && \
+          chmod +x /root/start-domain.sh
     - internal/docker-push:
          username: $USERNAME
          password: $PASSWORD
