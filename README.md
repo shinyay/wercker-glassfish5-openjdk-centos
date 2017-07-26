@@ -12,6 +12,8 @@ This Wecker application enables you to omit your process and use it easily and q
 
 ## Demo
 
+![](docs/images/wercker-demo.gif)
+
 ## Features
 
 - GlassFis 5 version is selectable
