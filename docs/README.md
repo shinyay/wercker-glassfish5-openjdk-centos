@@ -144,6 +144,9 @@ domain1 running
 Command list-domains executed successfully.
 ```
 
+## 公開リポジトリ
+- [shinyay/wercker-glassfish5-openjdk-centos](https://github.com/shinyay/wercker-glassfish5-openjdk-centos/tree/v1.0.0)
+
 ## Licence
 
 Released under the [MIT license](https://gist.githubusercontent.com/shinyay/56e54ee4c0e22db8211e05e70a63247e/raw/44f0f4de510b4f2b918fad3c91e0845104092bff/LICENSE)

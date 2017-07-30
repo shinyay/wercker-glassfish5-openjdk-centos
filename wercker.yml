@@ -29,10 +29,15 @@ build:
           echo "export PATH=$PATH:/glassfish5/bin" >> /root/.bashrc
           source /root/.bashrc
           yum install -y wget unzip
-          wget --no-check-certificate http://download.oracle.com/glassfish/5.0/promoted/glassfish-${GF_VERSION}.zip
+          if [ -z "${GF_VERSION}" ]; then
+            GF_TARGET=latest-glassfish.zip
+          else
+            GF_TARGET=glassfish-${GF_VERSION}.zip
+          fi
+          wget --no-check-certificate http://download.oracle.com/glassfish/5.0/promoted/${GF_TARGET}
           ls -l
-          unzip -o -d / glassfish-${GF_VERSION}.zip
-          rm -f glassfish-${GF_VERSION}.zip
+          unzip -o -d / ${GF_TARGET}
+          rm -f ${GF_TARGET}
           echo "----- CREATE PASSWORD FILE --------------------" && \
           echo "AS_ADMIN_PASSWORD=" > /tmp/gfpassword && \
           echo "AS_ADMIN_NEWPASSWORD=${GF_PASSWORD}" >> /tmp/gfpassword  && \
